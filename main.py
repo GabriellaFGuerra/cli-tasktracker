@@ -43,6 +43,18 @@ def complete_task(tasks):
     except (IndexError, ValueError):
         print("Invalid task number.")
 
+# Edit task
+def edit_task(tasks):
+    try:
+        task_index = int(input("Enter the task number to edit: ")) - 1
+        task_name = input("Enter the new task name: ")
+        tasks.append({"task": task_name, "completed": False})
+        save_tasks(tasks)
+        print(f"Task '{task_name}' edited.")
+    except (IndexError, ValueError):
+        print("Invalid task number.")
+    
+
 # Delete a task
 def delete_task(tasks):
     view_tasks(tasks)
